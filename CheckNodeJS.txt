@@ -1,0 +1,23 @@
+// import package
+const nodemailer = require("nodemailer");
+
+// create a transporter
+const provider = nodemailer.createTransport({
+  service: "gmail",
+  auth: {
+    user: "23che.di@gmail.com",
+    pass: "vdbc zdlu ftlu iduv",
+  },
+});
+
+const options = {
+  from: "23che.di@gmail.com",
+  to: "23che.di@gmail.com, shady.belhadj@protonmail.com",
+  subject: "Sending Mails via Node.js",
+  html: "<h1>hellooooooooo</h1><b>This is me a HTML tag p<b>",
+};
+
+provider.sendMail(options, (err, data) => {
+  if (err) console.log(err);
+  else console.log("message sent" + data.response);
+});
